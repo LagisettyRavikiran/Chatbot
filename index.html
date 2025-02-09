@@ -136,6 +136,20 @@
             font-size: 1.2em;
         }
 
+        .workflow-box::after {
+            content: '\2192'; /* Unicode for right arrow */
+            font-size: 1.5em;
+            color: #333;
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .workflow-box:last-child::after {
+            content: ''; /* Remove arrow from last box */
+        }
+
         /* Responsive Styles */
         @media screen and (max-width: 768px) {
             header h1 {
@@ -201,7 +215,7 @@
                 <div class="workflow-box">Preprocessing</div>
                 <div class="workflow-box">AI Model Analysis</div>
                 <div class="workflow-box">Response Generation</div>
-                <div class="workflow-box">User Receives Answer</div>
+                <!-- <div class="workflow-box">User Receives Answer</div> -->
             </div>
         </div>
 
