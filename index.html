@@ -150,6 +150,15 @@
             content: ''; /* Remove arrow from last box */
         }
 
+        .details-section {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
         /* Responsive Styles */
         @media screen and (max-width: 768px) {
             header h1 {
@@ -210,12 +219,11 @@
         <div class="section">
             <h2>Working Flow</h2>
             <div class="workflow">
-                <div class="workflow-box">User Uploads PDF</div>
-                <div class="workflow-box">Text Extraction</div>
-                <div class="workflow-box">Preprocessing</div>
-                <div class="workflow-box">AI Model Analysis</div>
-                <div class="workflow-box">Response Generation</div>
-                <!-- <div class="workflow-box">User Receives Answer</div> -->
+                <div class="workflow-box" onclick="showDetails('upload')">User Uploads PDF</div>
+                <div class="workflow-box" onclick="showDetails('extraction')">Text Extraction</div>
+                <div class="workflow-box" onclick="showDetails('preprocessing')">Preprocessing</div>
+                <div class="workflow-box" onclick="showDetails('analysis')">AI Model Analysis</div>
+                <div class="workflow-box" onclick="showDetails('response')">Response Generation</div>
             </div>
         </div>
 
@@ -243,8 +251,24 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
-            </div>  
+            </div> 
+            <div id="details" class="details-section"></div>
     </main>
+
+    <script>
+        function showDetails(step) {
+            const details = {
+                upload: "User uploads a PDF document for analysis. The system reads the file and prepares it for processing.",
+                extraction: "Text is extracted from the uploaded PDF using OCR or text extraction techniques.",
+                preprocessing: "Extracted text is cleaned, formatted, and prepared for AI analysis.",
+                analysis: "AI model analyzes the text to generate insights or extract relevant information.",
+                response: "The system generates a response based on the analysis and presents it to the user."
+            };
+            
+            document.getElementById('details').innerHTML = `<p>${details[step]}</p>`;
+            document.getElementById('details').style.display = 'block';
+        }
+    </script>
 
     <footer>
         <p>
