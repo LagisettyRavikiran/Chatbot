@@ -84,7 +84,7 @@ if uploaded_file is not None:
         dimension = image_embeddings.shape[1]
         image_index = faiss.IndexFlatL2(dimension)
         image_index.add(image_embeddings)
-        os.environ['GROQ_API_KEY'] = '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'
+        os.environ['GROQ_API_KEY'] = '#'
         llm = ChatGroq(model_name='llama-3.1-8b-instant')
         memory = ConversationBufferMemory(memory_key='chat_history', return_messages=False)
         retriever = text_db.as_retriever(search_type="similarity", search_kwargs={"k": 3})
